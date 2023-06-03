@@ -72,7 +72,7 @@ export default function YHBackground() {
           <ul className={YHModuleCss.ul}>
             {navList.slice(0, navList.length - 1).map((item, index) => {
               return (
-                <li key={index} className={YHModuleCss.li}>
+                <li key={index} className={`${YHModuleCss.li} text-gray-50`}>
                   <NavLink
                     to={item.link ?? ''}
                     className={({ isActive, isPending }) =>
@@ -87,7 +87,7 @@ export default function YHBackground() {
           </ul>
           {/* 登录搜索 */}
           <ul className={YHModuleCss.ul}>
-            <li className={YHModuleCss.li}>
+            <li className={`${YHModuleCss.li} text-gray-50`}>
               <IdentificationIcon className="h-6 w-6 text-gray-50" />
               <span>登录</span>
             </li>
@@ -98,15 +98,17 @@ export default function YHBackground() {
               className={YHModuleCss.mobile__menu__btn}
               onClick={menuHandle}>
               {isShow ? (
-                <BarsArrowUpIcon className=" text-gray-50 ml-4" />
-              ) : (
                 <BarsArrowDownIcon className=" text-gray-50 ml-4" />
+              ) : (
+                <BarsArrowUpIcon className=" text-gray-50 ml-4" />
               )}
             </button>
             <ul className={YHModuleCss.mobile__ul}>
               {navList.map((item, index) => {
                 return (
-                  <li className={YHModuleCss.mobile__li} key={index}>
+                  <li
+                    className={`${YHModuleCss.mobile__li} text-gray-50`}
+                    key={index}>
                     {item.link ? (
                       <NavLink
                         to={item.link}
