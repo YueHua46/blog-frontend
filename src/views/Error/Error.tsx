@@ -1,34 +1,38 @@
-import './index.scss'
+import Styles from './Error.module.scss'
 
 export default function Error() {
   return (
     <>
-      <div id="background"></div>
-      <div className="top">
+      <div id={`background`}></div>
+      <div className={`${Styles.top}`}>
         <h1>404</h1>
         <h3>page not found</h3>
       </div>
-      <div className="container">
-        <div className="ghost-copy">
-          <div className="one"></div>
-          <div className="two"></div>
-          <div className="three"></div>
-          <div className="four"></div>
+      <div className={`${Styles.container}`}>
+        <div className={`${Styles['ghost-copy']}`}>
+          <div className={`${Styles.one}`}></div>
+          <div className={`${Styles.two}`}></div>
+          <div className={`${Styles.three}`}></div>
+          <div className={`${Styles.four}`}></div>
         </div>
-        <div className="ghost">
-          <div className="face">
-            <div className="eye"></div>
-            <div className="eye-right"></div>
-            <div className="mouth"></div>
+        <div className={`${Styles.ghost}`}>
+          <div className={`${Styles.face}`}>
+            <div className={`${Styles.eye}`}></div>
+            <div className={`${Styles['eye-right']}`}></div>
+            <div className={`${Styles.mouth}`}></div>
           </div>
         </div>
-        <div className="shadow"></div>
+        <div className={`${Styles.shadow}`}></div>
       </div>
-      <div className="bottom">
+      <div className={`${Styles.bottom}`}>
         <p>Boo, looks like a ghost stole this page!</p>
-        <form className="search">
-          <input type="text" className="search-bar" placeholder="Search" />
-          <button type="submit" className="search-btn">
+        <form className={`${Styles.search}`}>
+          <input
+            type="text"
+            className={`${Styles['search-bar']}`}
+            placeholder="Search"
+          />
+          <button type="submit" className={`${Styles['search-btn']}`}>
             <svg
               fill="none"
               stroke="currentColor"
@@ -43,9 +47,9 @@ export default function Error() {
             </svg>
           </button>
         </form>
-        <div className="buttons">
-          <button className="btn">Back</button>
-          <button className="btn">Home</button>
+        <div className={`${Styles.buttons}`}>
+          <button className={`${Styles.btn}`}>Back</button>
+          <button className={`${Styles.btn}`}>Home</button>
         </div>
       </div>
 

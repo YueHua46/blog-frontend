@@ -1,6 +1,6 @@
 $white: #ededed;
 $gray: #bfc0c0;
-$dark: #585959;
+$dark: #000000;
 $light: #d3deea;
 
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato');
@@ -13,8 +13,15 @@ body {
 }
 
 .top {
-  margin-top: 30px;
+  // margin-top: 30px;
   margin-bottom: 30px;
+  padding-top: 100px;
+  h1 {
+    font-size: 10rem;
+  }
+  h3 {
+    color: $light;
+  }
 }
 
 .container {
@@ -155,6 +162,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  p {
+    font-size: 1.5em;
+    color: $white;
+  }
 }
 
 /*text styling*/

@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 // 路由组件
 import App from '../App'
 import Error from '../views/Error/Error'
-import Home from '../views/Home'
+import Home from '../views/Home/Home'
 import Archive from '../views/Archive/Archive'
 import Friends from '../views/Friends/Friends'
 import Donate from '../views/Donate/Donate'

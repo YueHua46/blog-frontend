@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <YHBackground />
-      <Outlet />
+      <div className={`bg-gray-300 p-10`}>
+        <Outlet />
+      </div>
     </>
   )
 }

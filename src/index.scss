@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-shadow-md {
+    text-shadow: 2px 2px #000;
+  }
+  .text-stroke-1 {
+    -webkit-text-stroke: 1px #000;
+    text-stroke: 1px #000;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -10,15 +20,27 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 #root {
   height: 100%;
 }
 .wrapper {
   position: absolute;
-  width: 0;
-  height: 0;
+  width: 100vw;
+  height: 100vh;
+
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  // position: relative;
+  line-height: normal;
+  background-image: url('./assets/animekanan.png'),
+    url('./assets/animekiri.png'), url('./assets/anime-background-images-1.jpg') !important;
+  background-repeat: no-repeat !important;
+  // background-attachment: fixed !important;
+  background-position: 4% 100%, 96% 100%, center center !important;
+  background-size: auto auto, auto auto, auto auto !important;
+  z-index: -1;
   #stars {
     width: 1px;
     height: 1px;
@@ -220,7 +242,7 @@ body {
   #stars:after {
     content: '';
     position: absolute;
-    top: 2000px;
+    // top: 2000px;
     width: 1px;
     height: 1px;
     background: transparent;
@@ -481,7 +503,7 @@ body {
   #stars2:after {
     content: '';
     position: absolute;
-    top: 2000px;
+    // top: 2000px;
     width: 2px;
     height: 2px;
     background: transparent;
@@ -579,9 +601,7 @@ body {
   #stars3:after {
     content: '';
     position: absolute;
-    top: 2000px;
-    width: 3px;
-    height: 3px;
+
     background: transparent;
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
       948px 1828px #fff, 1977px 1001px #fff, 1284px 1963px #fff,
@@ -624,21 +644,10 @@ body {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  line-height: normal;
-  background-image: url('./assets/animekanan.png'),
-    url('./assets/animekiri.png'), url('./assets/anime-background-images-1.jpg') !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
-  background-position: 4% 100%, 96% 100%, center center !important;
-  background-size: auto auto, auto auto, auto auto !important;
 }
 
 @media only screen and (max-width: 600px) {
-  body {
+  .wrapper {
     background-image: url('./assets/anime-background-images-1.jpg') !important;
     background-attachment: fixed !important;
     background-position: center !important;
