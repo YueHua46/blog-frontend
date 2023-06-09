@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { RiTwitterFill } from 'react-icons/ri'
-import { BlogCardProps } from '../../components/BlogCard/types'
+import { BlogCardProps } from '../components/BlogCard/types'
 
 export const blogCards: BlogCardProps[] = [
   {
