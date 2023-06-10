@@ -2,6 +2,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { RiTwitterFill } from 'react-icons/ri'
 import { BlogCardProps } from '../components/BlogCard/types'
 
+// 博客列表数据
 export const blogCards: BlogCardProps[] = [
   {
     tags: ['React', 'TypeScript'],
@@ -97,6 +98,7 @@ interface IComment {
   replies?: IComment[]
 }
 
+// 评论数据
 export const comments: IComment[] = [
   {
     id: 1,
@@ -149,6 +151,108 @@ export const comments: IComment[] = [
         content: '这是一条回复',
         createTile: '2022-01-01',
         likes: 10,
+      },
+    ],
+  },
+]
+
+// 归档分类
+export const archiveClass = [
+  {
+    classId: 1,
+    text: '所有',
+    total: 10,
+  },
+  {
+    classId: 2,
+    text: '前端',
+    total: 10,
+  },
+  {
+    classId: 3,
+    text: '后端',
+    total: 10,
+  },
+  {
+    classId: 4,
+    text: '虚拟机',
+    total: 10,
+  },
+  {
+    classId: 5,
+    text: '数据库',
+    total: 10,
+  },
+  {
+    classId: 6,
+    text: '中间件',
+    total: 10,
+  },
+  {
+    classId: 7,
+    text: '闲言碎语',
+    total: 10,
+  },
+]
+// 归档数据
+export const archives = [
+  {
+    year: 2021,
+    archiveList: [
+      {
+        title: '如何在 React 中使用 TypeScript',
+        createTile: '01-01',
+        link: '/article/1',
+      },
+      {
+        title: '你可能不知道的 10 个 JavaScript 技巧',
+        createTile: '01-02',
+        link: '/article/2',
+      },
+      {
+        title: '如何使用 CSS Grid 和 Flexbox 创建响应式布局',
+        createTile: '01-03',
+        link: '/article/3',
+      },
+      {
+        title: '如何使用 Next.js 构建服务器渲染的 React 应用',
+        createTile: '01-04',
+        link: '/article/4',
+      },
+      {
+        title: '如何在 React 中使用 Redux',
+        createTile: '01-05',
+        link: '/article/5',
+      },
+    ],
+  },
+  {
+    year: 2020,
+    archiveList: [
+      {
+        title: '如何在 React 中使用 TypeScript',
+        createTile: '01-01',
+        link: '/article/6',
+      },
+      {
+        title: '你可能不知道的 10 个 JavaScript 技巧',
+        createTile: '01-02',
+        link: '/article/7',
+      },
+      {
+        title: '如何使用 CSS Grid 和 Flexbox 创建响应式布局',
+        createTile: '01-03',
+        link: '/article/8',
+      },
+      {
+        title: '如何使用 Next.js 构建服务器渲染的 React 应用',
+        createTile: '01-04',
+        link: '/article/9',
+      },
+      {
+        title: '如何在 React 中使用 Redux',
+        createTile: '01-05',
+        link: '/article/10',
       },
     ],
   },

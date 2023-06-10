@@ -1,76 +1,85 @@
+import BaseCard from '../../components/BaseCard/BaseCard'
 import YHContainer from '../../components/YHContainer/YHContainer'
+import { archiveClass, archives } from '../../data'
 import Contact from '../Contact/Contact'
 import Styles from './Archive.module.scss'
 
 export default function Archive() {
+  const toBlogHandle = (link: string) => {
+    return () => {
+      console.log('link', link)
+      // 跳转到指定博客链接
+    }
+  }
+  const toggleClassHandle = (classId: number) => {
+    return () => {
+      console.log('classId', classId)
+      // 切换指定类型的博客
+    }
+  }
   return (
     <YHContainer>
-      <div className={`${Styles['archive-container']} flex`}>
+      <div className={`${Styles['archive-container']}`}>
         {/* 左边归档集 */}
-        <div className={`${Styles['container-fluid']}`}>
-          <div className={`${Styles['row']} ${Styles['example-basic']}`}>
-            <div
-              className={`${Styles['col-md-12']} ${Styles['example-title']}`}>
-              <h2>Basic Timeline</h2>
-              <p>Extra small devices (phones, less than 768px)</p>
-            </div>
-            <div
-              className={`${Styles['col-xs-10']} ${Styles['col-xs-offset-1']} ${Styles['col-sm-8']} ${Styles['col-sm-offset-2']}`}>
-              <ul className={`${Styles.timeline}`}>
-                <li className={`${Styles['timeline-item']}`}>
-                  <div className={`${Styles['timeline-info']}`}>
-                    <span>March 12, 2016</span>
-                  </div>
-                  <div className={`${Styles['timeline-marker']}`}></div>
-                  <div className={`${Styles['timeline-content']}`}>
-                    <h3 className={`${Styles['timeline-title']}`}>
-                      Event Title
-                    </h3>
-                    <p>
-                      Nullam vel sem. Nullam vel sem. Integer ante arcu,
-                      accumsan a, consectetuer eget, posuere ut, mauris. Donec
-                      orci lectus, aliquam ut, faucibus non, euismod id, nulla.
-                      Donec vitae sapien ut libero venenatis faucibus. ullam
-                      dictum felis eu pede mollis pretium. Pellentesque ut
-                      neque.
-                    </p>
-                  </div>
-                </li>
-                <li className={`${Styles['timeline-item']} ${Styles.period}`}>
-                  <div className={`${Styles['timeline-info']}`}></div>
-                  <div className={`${Styles['timeline-marker']}`}></div>
-                  <div className={`${Styles['timeline-content']}`}>
-                    <h2 className={`${Styles['timeline-title']}`}>
-                      April 2016
-                    </h2>
-                  </div>
-                </li>
-                <li className={`${Styles['timeline-item']}`}>
-                  <div className={`${Styles['timeline-info']}`}>
-                    <span>April 02, 2016</span>
-                  </div>
-                  <div className={`${Styles['timeline-marker']}`}></div>
-                  <div className={`${Styles['timeline-content']}`}>
-                    <h3 className={`${Styles['timeline-title']}`}>
-                      Event Title
-                    </h3>
-                    <p>
-                      Nullam vel sem. Nullam vel sem. Integer ante arcu,
-                      accumsan a, consectetuer eget, posuere ut, mauris. Donec
-                      orci lectus, aliquam ut, faucibus non, euismod id, nulla.
-                      Donec vitae sapien ut libero venenatis faucibus. ullam
-                      dictum felis eu pede mollis pretium. Pellentesque ut
-                      neque.{' '}
-                    </p>
-                  </div>
-                </li>
+        <div className={`${Styles['archive-content-container']}`}>
+          <BaseCard className={`${Styles['archive-content']} p-10`}>
+            <h2>归档</h2>
+            {/* 归档分类 */}
+            <div className={`${Styles['archive-content-class']}`}>
+              <h3>分类</h3>
+              <ul className={`${Styles['archive-class-list']}`}>
+                {archiveClass.map((item, idx) => {
+                  return (
+                    <li
+                      key={idx}
+                      className={`${Styles['archive-class-item']}`}
+                      onClick={toggleClassHandle(item.classId)}>
+                      <span className={Styles['archive-class-item-type']}>
+                        {item.text}
+                      </span>
+                      <span className={Styles['archive-class-item-total']}>
+                        ({item.total})
+                      </span>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
-          </div>
+            {/* 博客归档列表 */}
+            <div className={`${Styles['archive-content-list']}`}>
+              {/* 根据年份遍历数据 */}
+              {archives.map((item, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    className={`${Styles['archive-content-item']}`}>
+                    <h3>{item.year}</h3>
+                    {/* 具体年份的所有博客列表 */}
+                    <ul className={`${Styles['archive-list']}`}>
+                      {item.archiveList.map((archive, idx) => {
+                        return (
+                          <li key={idx} className={`${Styles['archive-item']}`}>
+                            <span className={`${Styles['archive-item-date']}`}>
+                              {archive.createTile}
+                            </span>
+                            <span
+                              className={`${Styles['archive-item-title']}`}
+                              onClick={toBlogHandle(archive.link)}>
+                              {archive.title}
+                            </span>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
+          </BaseCard>
         </div>
 
         {/* 右边联系集 */}
-        <div className={`${Styles['archive-contact']} flex-[3]`}>
+        <div className={`${Styles['archive-contact']}`}>
           <Contact />
         </div>
       </div>

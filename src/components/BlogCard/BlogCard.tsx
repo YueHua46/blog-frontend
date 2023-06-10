@@ -8,6 +8,7 @@ import {
   EyeIcon,
 } from '@heroicons/react/24/outline'
 import { BlogCardProps } from './types'
+import BaseCard from '../BaseCard/BaseCard'
 
 export default function BlogCard({
   children,
@@ -46,7 +47,7 @@ export default function BlogCard({
   ]
 
   return (
-    <div className={`${Styles['common-card']}`}>
+    <BaseCard isHover isPadding={false}>
       <section
         className={`${Styles['card-content']}`}
         style={{
@@ -77,6 +78,6 @@ export default function BlogCard({
         </div>
         <div className={Styles.horizontal}></div>
       </section>
-    </div>
+    </BaseCard>
   )
 }

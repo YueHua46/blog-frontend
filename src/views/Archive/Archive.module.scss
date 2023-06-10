@@ -1,244 +1,129 @@
-$primary-color: #ff6b6b;
-$primary-color-hover: scale-color($primary-color, $lightness: 32%);
-
-// 左侧归档集
-.timeline {
-  line-height: 1.4em;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.archive-container {
+  display: flex;
+  gap: 2rem;
+  user-select: none;
+}
+.archive-content-container {
+  flex: 6.5;
+}
+.archive-contact {
+  flex: 3.5;
+}
+.archive-content {
   width: 100%;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    line-height: inherit;
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
   }
 }
 
-/*----- TIMELINE ITEM -----*/
+.archive-content-class {
+  h3 {
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+}
+.archive-class-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 1rem 0 1rem 1rem;
+}
+.archive-class-item {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  gap: 4px;
+  .archive-class-item-type {
+    color: #ab3300;
+  }
+  .archive-class-item-total {
+    color: #aeaeae;
+  }
+}
+// 定义归档列表的样式
+.archive-content-list {
+  // 设置列表的宽度和边距
+  // 设置列表的字体和颜色
+  font-family: Arial, sans-serif;
+}
 
-.timeline-item {
-  padding-left: 40px;
+// 定义归档内容项的样式
+.archive-content-item {
+  // 设置内容项的内边距
+  // 设置内容项的标题的样式
+  h3 {
+    // 设置标题的字号和颜色
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    color: #000;
+    // 设置标题的下边距
+    margin-bottom: 10px;
+  }
+}
+
+// 定义具体年份的博客列表的样式
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 1.5rem;
+  user-select: none;
+}
+
+// 定义具体年份的博客项的样式
+.archive-item {
+  // 设置博客项的高度和行高
+  // 设置博客项的前面有一个点状的样式
   position: relative;
-  &:last-child {
-    padding-bottom: 0;
-  }
-}
 
-/*----- TIMELINE INFO -----*/
-
-.timeline-info {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin: 0 0 0.5em 0;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-/*----- TIMELINE MARKER -----*/
-
-.timeline-marker {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 15px;
   &:before {
-    background: $primary-color;
-    border: 3px solid transparent;
-    border-radius: 100%;
+    // 设置点状样式的内容和位置
     content: '';
-    display: block;
-    height: 15px;
     position: absolute;
-    top: 4px;
-    left: 0;
-    width: 15px;
-    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    // 设置点状样式的形状和颜色
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #97dffd;
   }
-  &:after {
-    content: '';
-    width: 3px;
-    background: #ccd5db;
-    display: block;
-    position: absolute;
-    top: 24px;
-    bottom: 0;
-    left: 6px;
-  }
-  .timeline-item:last-child &:after {
-    content: none;
-  }
-}
-.timeline-item:not(.period):hover .timeline-marker:before {
-  background: transparent;
-  border: 3px solid $primary-color;
-}
-
-/*----- TIMELINE CONTENT -----*/
-
-.timeline-content {
-  padding-bottom: 40px;
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-/*----- TIMELINE PERIOD -----*/
-
-.period {
-  padding: 0;
-  .timeline-info {
-    display: none;
-  }
-  .timeline-marker {
-    &:before {
-      background: transparent;
-      content: '';
-      width: 15px;
-      height: auto;
-      border: none;
-      border-radius: 0;
-      top: 0;
-      bottom: 30px;
-      position: absolute;
-      border-top: 3px solid #ccd5db;
-      border-bottom: 3px solid #ccd5db;
-    }
+  // 选中出了第一个item以外的所有item
+  &:not(:first-child) {
+    // 设置一个往上连接的样式效果
     &:after {
-      content: '';
-      height: 32px;
-      top: auto;
-    }
-  }
-  .timeline-content {
-    padding: 40px 0 70px;
-  }
-  .timeline-title {
-    margin: 0;
-  }
-}
-
-/*----------------------------------------------
-        MOD: TIMELINE SPLIT
-    ----------------------------------------------*/
-
-.timeline-split {
-  @media (min-width: 768px) {
-    .timeline {
-      display: table;
-    }
-    .timeline-item {
-      display: table-row;
-      padding: 0;
-    }
-    .timeline-info,
-    .timeline-marker,
-    .timeline-content,
-    .period .timeline-info {
-      display: table-cell;
-      vertical-align: top;
-    }
-    .timeline-marker {
-      position: relative;
-    }
-    .timeline-content {
-      padding-left: 30px;
-    }
-    .timeline-info {
-      padding-right: 30px;
-    }
-    .period .timeline-title {
-      position: relative;
-      left: -45px;
-    }
-  }
-}
-
-/*----------------------------------------------
-        MOD: TIMELINE CENTERED
-    ----------------------------------------------*/
-
-.timeline-centered {
-  @extend .timeline-split;
-  @media (min-width: 992px) {
-    &,
-    .timeline-item,
-    .timeline-info,
-    .timeline-marker,
-    .timeline-content {
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-    .timeline-item {
-      padding-bottom: 40px;
-      overflow: hidden;
-    }
-    .timeline-marker {
+      height: 20px;
       position: absolute;
-      left: 50%;
-      margin-left: -7.5px;
-    }
-    .timeline-info,
-    .timeline-content {
-      width: 50%;
-    }
-    > .timeline-item:nth-child(odd) .timeline-info {
-      float: left;
-      text-align: right;
-      padding-right: 30px;
-    }
-    > .timeline-item:nth-child(odd) .timeline-content {
-      float: right;
-      text-align: left;
-      padding-left: 30px;
-    }
-    > .timeline-item:nth-child(even) .timeline-info {
-      float: right;
-      text-align: left;
-      padding-left: 30px;
-    }
-    > .timeline-item:nth-child(even) .timeline-content {
-      float: left;
-      text-align: right;
-      padding-right: 30px;
-    }
-    > .timeline-item.period .timeline-content {
-      float: none;
-      padding: 0;
-      width: 100%;
-      text-align: center;
-    }
-    .timeline-item.period {
-      padding: 50px 0 90px;
-    }
-    .period .timeline-marker:after {
-      height: 30px;
-      bottom: 0;
-      top: auto;
-    }
-    .period .timeline-title {
-      left: auto;
+      background-color: #97dffd;
+      border-radius: 10px;
+      content: '';
+      left: -14px;
+      width: 2px;
+      top: -14px;
     }
   }
 }
 
-/*----------------------------------------------
-        MOD: MARKER OUTLINE
-    ----------------------------------------------*/
+// 定义博客项中的日期和标题的样式
+.archive-item-date {
+  // 设置日期和标题的字号和颜色
+  font-size: 16px;
+  color: #2fa9fa;
+}
 
-.marker-outline {
-  .timeline-marker {
-    &:before {
-      background: transparent;
-      border-color: $primary-color;
-    }
-  }
-  .timeline-item:hover .timeline-marker:before {
-    background: $primary-color;
+// 定义博客项中的标题的样式
+.archive-item-title {
+  // 设置标题的左边距和下划线
+  margin-left: 10px;
+  cursor: pointer;
+
+  &:hover {
+    color: #2fa9fa;
   }
 }

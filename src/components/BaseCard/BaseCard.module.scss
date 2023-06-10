@@ -1,5 +1,4 @@
 .base-card {
-  display: flex;
   background: #f0f0f0;
   background-size: cover;
   background-position: center;
@@ -7,11 +6,4 @@
   box-shadow: 4px 8px 28px rgba(39, 44, 49, 0.1),
     1px 3px 8px rgba(39, 44, 49, 0.075);
   border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    box-shadow: 0 0 1px rgba(39, 44, 49, 0.2), 0 3px 16px rgba(39, 44, 49, 0.25);
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
-  }
 }

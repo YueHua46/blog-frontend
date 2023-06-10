@@ -16,9 +16,9 @@ specifiers:
   react-icons: ^4.9.0
   react-router-dom: ^6.11.2
   react-scroll-to-top: ^3.0.0
-  react-scroll-up-button: ^1.6.4
   sass: ^1.62.1
   scss: ^0.2.4
+  tailwind-merge: ^1.13.1
   tailwindcss: ^3.3.2
   typescript: ^5.0.2
   vite: ^4.3.9
@@ -34,9 +34,9 @@ dependencies:
   react-icons: 4.9.0_react@18.2.0
   react-router-dom: 6.11.2_biqbaboplfbrettd7655fr4n2y
   react-scroll-to-top: 3.0.0_react@18.2.0
-  react-scroll-up-button: 1.6.4_react@18.2.0
   sass: 1.62.1
   scss: 0.2.4
+  tailwind-merge: 1.13.1
 
 devDependencies:
   '@types/react': 18.2.8
@@ -768,10 +768,6 @@ packages:
       ms: 2.1.2
     dev: true
 
-  /detect-passive-events/1.0.5:
-    resolution: {integrity: sha512-foW7Q35wwOCxVzW0xLf5XeB5Fhe7oyRgvkBYdiP9IWgLMzjqUqTvsJv9ymuEWGjY6AoDXD3OC294+Z9iuOw0QA==}
-    dev: false
-
   /didyoumean/1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
 
@@ -1164,14 +1160,6 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
-  /prop-types/15.8.1:
-    resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
-    dependencies:
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react-is: 16.13.1
-    dev: false
-
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -1205,10 +1193,6 @@ packages:
       easy-bem: 1.1.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /react-is/16.13.1:
-    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
 
   /react-refresh/0.14.0:
@@ -1245,17 +1229,6 @@ packages:
       react: ^16.8.0 || 17.x || ^18
     dependencies:
       react: 18.2.0
-    dev: false
-
-  /react-scroll-up-button/1.6.4_react@18.2.0:
-    resolution: {integrity: sha512-ou/ZLbjAXgXnszmNp9g17XlZBat48V3Oz40ssEcu6dEIM2CVn/yWxej3Y4Fx1LyUtQ1cc/MoWOSXC2dufaiACg==}
-    peerDependencies:
-      react: ^15.5.4 || ^16.0.0
-    dependencies:
-      detect-passive-events: 1.0.5
-      prop-types: 15.8.1
-      react: 18.2.0
-      tween-functions: 1.2.0
     dev: false
 
   /react/18.2.0:
@@ -1360,6 +1333,10 @@ packages:
     resolution: {integrity: sha512-qCN98uP7i9z0fIS4amQ5zbGBOq+OSigYeGvPy7NDk8Y9yncqDZ9pRPgfsc2PJIVM9RrJj7GIfuRgmjoUU9zTHQ==}
     dev: false
 
+  /tailwind-merge/1.13.1:
+    resolution: {integrity: sha512-tRtRN22TDokGi2TuYSvuHQuuW6BJ/zlUEG+iYpAQ9i66msc/0eU/+HPccbPnNNH0mCPp0Ob8thaC8Uy9CxHitQ==}
+    dev: false
+
   /tailwindcss/3.3.2:
     resolution: {integrity: sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==}
     engines: {node: '>=14.0.0'}
@@ -1418,10 +1395,6 @@ packages:
 
   /tslib/2.5.2:
     resolution: {integrity: sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==}
-    dev: false
-
-  /tween-functions/1.2.0:
-    resolution: {integrity: sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA==}
     dev: false
 
   /typescript/5.1.3:
