@@ -1,11 +1,31 @@
 import BlogCard from '../../components/BlogCard/BlogCard'
 import Styles from './Home.module.scss'
-import { blogCards } from '../../data'
+import { blogCards as blogData } from '../../data'
 import ScrollToTop from 'react-scroll-to-top'
 import Contact from '../Contact/Contact'
 import YHContainer from '../../components/YHContainer/YHContainer'
+import YHSkeleton from '../../components/YHSkeleton/YHSkeleton'
+import { usePromise } from 'react-use'
+import { Suspense, useEffect, useState } from 'react'
+import { BlogCardProps } from '../../components/BlogCard/types'
 
 export default function Home() {
+  const mounted = usePromise()
+  const [blogCards, setBlogCards] = useState<BlogCardProps[]>([])
+
+  useEffect(() => {
+    // 模拟异步请求数据
+    ;(async () => {
+      const value = await mounted<BlogCardProps[]>(
+        new Promise(resolve => {
+          setTimeout(() => {
+            resolve(blogData)
+          }, 1000)
+        })
+      )
+      setBlogCards(value)
+    })()
+  }, [])
   return (
     <YHContainer>
       <div className={`${Styles['blog-card']}`}>

@@ -9,6 +9,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { BlogCardProps } from './types'
 import BaseCard from '../BaseCard/BaseCard'
+import { Suspense, useEffect } from 'react'
+import { usePromise } from 'react-use'
 
 export default function BlogCard({
   children,
@@ -22,6 +24,7 @@ export default function BlogCard({
   views,
   bgImg,
 }: BlogCardProps) {
+  const mount = usePromise()
   // 统计数据
   const statistics = [
     {
@@ -45,7 +48,6 @@ export default function BlogCard({
       text: views,
     },
   ]
-
   return (
     <BaseCard isHover isPadding={false}>
       <section
