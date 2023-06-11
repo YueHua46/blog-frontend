@@ -127,3 +127,14 @@
     color: #2fa9fa;
   }
 }
+
+// 缩小到768px以下时，设置博客列表的样式
+@media (max-width: 768px) {
+  .archive-container {
+    flex-direction: column;
+  }
+  .archive-content-container,
+  .archive-contact {
+    width: 100%;
+  }
+}

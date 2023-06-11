@@ -107,3 +107,23 @@
     }
   }
 }
+
+// 缩小到768内的样式
+@media screen and (max-width: 768px) {
+  .content-mask {
+    width: 100%;
+    padding: 2em 0 2em 1.5em;
+    h1 {
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 1em;
+    }
+  }
+  .horizontal {
+    width: 30%;
+  }
+  .credit {
+    font-size: 1em;
+  }
+}

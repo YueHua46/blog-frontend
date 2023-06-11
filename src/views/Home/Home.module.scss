@@ -12,3 +12,14 @@
 .blog-card-contact {
   flex: 3.5;
 }
+
+// 缩小到768px以下时，设置博客列表的样式
+@media (max-width: 768px) {
+  .blog-card {
+    flex-direction: column;
+  }
+  .blog-card-list,
+  .blog-card-contact {
+    width: 100%;
+  }
+}

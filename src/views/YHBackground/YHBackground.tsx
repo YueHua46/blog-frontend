@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavItem } from './types'
 import YHModuleCss from './YHBackground.module.scss'
 
@@ -162,17 +162,17 @@ export default function YHBackground() {
 
       {/* 个人介绍 */}
       <div
-        className={`${YHModuleCss['user-info']} flex justify-center items-center py-10 px-52 text-gray-50 bg-slate-300 bg-opacity-60 rounded-lg w-8/12 absolute -bottom-24`}>
+        className={`${YHModuleCss['user-info']} flex justify-center items-center py-10 text-gray-50 bg-slate-300 bg-opacity-60 rounded-lg w-8/12 absolute -bottom-24`}>
         <div className="flex flex-col justify-center items-center">
           <img
             src={avatar}
             alt="头像"
             className={`w-20 h-20 border-gray-500 rounded-full`}
           />
-          <h1 className="text-shadow-md text-stroke-1 text-green-500 font-bold text-2xl font-sans">
+          <h1 className="text-blue-500 font-bold text-2xl font-sans">
             不许人间见白头
           </h1>
-          <p className="text-sm">前端开发工程师</p>
+          <p className="text-sm text-gray-600">后端开发工程师</p>
         </div>
       </div>
     </div>
