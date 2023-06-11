@@ -23,7 +23,9 @@ export default function Contact() {
           <div className={Styles['contact-bg']}>
             <img src={contact.bgImg} alt="" />
           </div>
-          <h3 className={Styles['contact-name']}>{contact.name}</h3>
+          <h3 className={`${Styles['contact-name']} text-center`}>
+            {contact.name}
+          </h3>
           <article className={Styles['contact-list']}>
             <ul className={Styles['contact-links']}>
               {links1.map((link, idx) => {

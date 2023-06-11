@@ -4,9 +4,8 @@ import { blogCards as blogData } from '../../data'
 import ScrollToTop from 'react-scroll-to-top'
 import Contact from '../Contact/Contact'
 import YHContainer from '../../components/YHContainer/YHContainer'
-import YHSkeleton from '../../components/YHSkeleton/YHSkeleton'
 import { usePromise } from 'react-use'
-import { Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BlogCardProps } from '../../components/BlogCard/types'
 
 export default function Home() {

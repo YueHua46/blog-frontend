@@ -6,7 +6,7 @@ import Error from '../views/Error/Error'
 import Home from '../views/Home/Home'
 import Archive from '../views/Archive/Archive'
 import Friends from '../views/Friends/Friends'
-import Donate from '../views/Donate/Donate'
+import Message from '../views/Message/Message'
 import About from '../views/About/About'
 
 export const router = createBrowserRouter([
@@ -28,8 +28,8 @@ export const router = createBrowserRouter([
         element: <Friends />,
       },
       {
-        path: '/donate',
-        element: <Donate />,
+        path: '/message',
+        element: <Message />,
       },
       {
         path: '/about',

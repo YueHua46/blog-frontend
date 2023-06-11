@@ -4,12 +4,12 @@ import YHModuleCss from './YHBackground.module.scss'
 
 import { HomeIcon } from '@heroicons/react/24/outline'
 import { ArchiveBoxIcon } from '@heroicons/react/24/outline'
-import { CurrencyYenIcon } from '@heroicons/react/24/outline'
 import { UserGroupIcon } from '@heroicons/react/24/outline'
 import { SparklesIcon } from '@heroicons/react/24/outline'
 import { IdentificationIcon } from '@heroicons/react/24/outline'
 import { BarsArrowUpIcon } from '@heroicons/react/24/outline'
 import { BarsArrowDownIcon } from '@heroicons/react/24/outline'
+import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 
 import avatar from '../../assets/images/avatar.png'
 
@@ -30,9 +30,9 @@ export default function YHBackground() {
       link: '/archive',
     },
     {
-      text: '表白墙',
-      icon: <CurrencyYenIcon className="h-5 w-5 text-gray-50" />,
-      link: '/donate',
+      text: '留言板',
+      icon: <ChatBubbleLeftRightIcon className="h-5 w-5 text-gray-50" />,
+      link: '/message',
     },
     {
       text: '伙伴',
@@ -46,7 +46,7 @@ export default function YHBackground() {
     },
     {
       text: '登录',
-      icon: <IdentificationIcon className="h-6 w-6 text-gray-50" />,
+      icon: <IdentificationIcon className="h-5 w-5 text-gray-50" />,
     },
   ])
   const textRef = useRef(null)

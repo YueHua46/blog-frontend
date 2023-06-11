@@ -3,20 +3,24 @@ import { Outlet } from 'react-router-dom'
 import YHBackground from './views/YHBackground/YHBackground'
 import { useIdle } from 'react-use'
 import { useEffect } from 'react'
-import { useTitle, useFavicon } from './hooks'
+import { setTitle, setFavicon, changeMarkdownMode } from './utils/helpers'
 
 function App() {
   // 判断用户是否处于空闲状态
   const isIdle = useIdle(3e3)
   useEffect(() => {
     if (isIdle) {
-      useTitle('你去哪里了？')
-      useFavicon('/idle.ico')
+      setTitle('你去哪里了？😔')
+      setFavicon('/idle.ico')
     } else {
-      useTitle('欢迎回来！')
-      useFavicon('/active.ico')
+      setTitle('欢迎回来！😊')
+      setFavicon('/active.ico')
     }
   }, [isIdle])
+
+  useEffect(() => {
+    changeMarkdownMode('light')
+  }, [])
 
   return (
     <>

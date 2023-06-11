@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@types/faker": "^6.6.9",
+    "@uiw/react-md-editor": "^3.23.3",
     "blog-frontend": "link:",
+    "faker": "^6.6.6",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.7",
     "gsap": "^3.11.5",

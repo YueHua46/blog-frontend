@@ -1,0 +1,13 @@
+.markdown-edit-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .markdown-edit-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    button {
+      max-width: 200px;
+    }
+  }
+}

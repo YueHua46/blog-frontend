@@ -257,3 +257,42 @@ export const archives = [
     ],
   },
 ]
+
+// 留言板数据 ---
+export const myMessage = [
+  '走过路过不要错过！交流、咨询、吐槽、感叹、勾搭都在这里，尽情畅谈！',
+  '欢迎加博主微信进前端学习交流群，不定期会发送学习资料，共同进步哦！',
+]
+export const messageList: Message[] = [
+  {
+    name: '小明',
+    // 在线头像
+    avatar: 'https://api.multiavatar.com/1.png',
+    // 时间
+    date: '2021-08-01 16:00:00',
+    content: '122141254',
+  },
+  {
+    name: '小红',
+    avatar: 'https://api.multiavatar.com/2.png',
+    date: '2021-08-02 16:00:00',
+    content: `# hello world \n 123`,
+  },
+  {
+    name: '小刚',
+    avatar: 'https://api.multiavatar.com/3.png',
+    date: '2021-08-03 16:00:00',
+    content: `
+    # Hello World
+    这是一条测试评论
+    \`\`\`tsx
+    const a = 1
+    const b = 2
+    function sum(a: number, b: number) {
+      return a + b
+    }
+    \`\`\`
+    ## Just For Fun
+    `,
+  },
+]

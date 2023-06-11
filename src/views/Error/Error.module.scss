@@ -2,15 +2,8 @@ $white: #ededed;
 $gray: #bfc0c0;
 $dark: #000000;
 $light: #d3deea;
-
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato');
-
 $big: 'Abril Fatface', serif;
 $body: 'Lato', sans-serif;
-
-body {
-  background: $light;
-}
 
 .top {
   // margin-top: 30px;
@@ -169,31 +162,6 @@ body {
 }
 
 /*text styling*/
-h1 {
-  font-family: $big;
-  color: $white;
-  text-align: center;
-  font-size: 9em;
-  margin: 0;
-  text-shadow: -1px 0 $gray, 0 1px $gray, 1px 0 $gray, 0 -1px $gray;
-}
-h3 {
-  font-family: $body;
-  font-size: 2em;
-  text-transform: uppercase;
-  text-align: center;
-  color: $gray;
-  margin-top: -20px;
-  font-weight: 900;
-}
-p {
-  text-align: center;
-  font-family: $body;
-  color: $dark;
-  font-size: 0.6em;
-  margin-top: -20px;
-  text-transform: uppercase;
-}
 
 .search {
   height: 32px;
@@ -253,25 +221,5 @@ p {
   &:hover {
     background: $gray;
     transition: all 0.4s ease-out;
-  }
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  text-align: center;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  padding: 10px;
-  color: #ea7996;
-  letter-spacing: 3px;
-  font-family: $body;
-  a {
-    color: #ffffff;
-    text-decoration: none;
-    &:hover {
-      color: #7d7d7d;
-    }
   }
 }
