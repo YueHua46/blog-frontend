@@ -25,9 +25,7 @@ function App() {
   return (
     <>
       <YHBackground />
-      <div className={`p-10`}>
-        <Outlet />
-      </div>
+      <Outlet />
     </>
   )
 }

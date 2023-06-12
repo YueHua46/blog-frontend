@@ -77,7 +77,7 @@ export default function YHBackground() {
   }
 
   return (
-    <div className={`${YHModuleCss['custom-container']} items-center`}>
+    <div className={`${YHModuleCss['custom-container']} items-center mb-32`}>
       {/* 头部nav */}
       <div
         className={`${YHModuleCss['nav-container']} ${

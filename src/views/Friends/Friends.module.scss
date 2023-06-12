@@ -1,0 +1,27 @@
+.friends-container {
+  display: flex;
+}
+.friends-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.friends-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+// 屏幕尺寸低于768px时，设置博客列表的样式
+@media (max-width: 768px) {
+  .friends-container {
+    flex-direction: column;
+  }
+}
+
+// 屏幕尺寸高于1200px时，设置博客列表的样式
+@media (min-width: 1200px) {
+  .friends-container {
+    flex-direction: row;
+  }
+}
