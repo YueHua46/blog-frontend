@@ -28,7 +28,7 @@ export default function Friends() {
     },
   ]
   return (
-    <div className={`${Styles['friends-container']} flex gap-8`}>
+    <div className={`${Styles['friends-container']} container flex gap-8`}>
       <div className={`flex-[6.5]`}>
         <BaseCard className={`${Styles['friends-content']}`}>
           <h2 className="font-bold text-xl text-gray-800">友链列表</h2>
