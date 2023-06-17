@@ -7,6 +7,7 @@ import YHContainer from '../../components/YHContainer/YHContainer'
 import { usePromise } from 'react-use'
 import { useEffect, useState } from 'react'
 import { BlogCardProps } from '../../components/BlogCard/types'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   const mounted = usePromise()
@@ -31,7 +32,11 @@ export default function Home() {
         {/* 左边博客集 */}
         <div className={`${Styles['blog-card-list']} ${Styles['blog-card']}`}>
           {blogCards.map((blogCard, idx) => {
-            return <BlogCard key={idx} {...blogCard} />
+            return (
+              <Link to={`/blog_detailed/${blogCard.id}`} key={idx}>
+                <BlogCard {...blogCard} />
+              </Link>
+            )
           })}
         </div>
         {/* 右边卡片集*/}

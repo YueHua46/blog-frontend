@@ -1,0 +1,16 @@
+@use '../../assets/variables.scss' as m;
+
+.blog-detailed-container {
+  gap: 20px;
+}
+
+// 左
+.blog-detailed-content {
+  position: relative;
+}
+.blog-detailed-fixed {
+  @include m.fixed-title-style;
+}
+// 右
+.blog-detailed-contact {
+}

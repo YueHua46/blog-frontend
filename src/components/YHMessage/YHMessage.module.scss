@@ -1,0 +1,70 @@
+@mixin message-card-title {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h2 {
+    @include message-card-title;
+  }
+  .message-content-publish {
+  }
+}
+
+// 留言板样式
+.message-content-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-content-item {
+  display: flex;
+  margin: 10px 0;
+}
+
+.message-content-item-avatar {
+  margin-right: 10px;
+}
+
+.message-content-item-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.message-content-item-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: #24292f;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+}
+.message-content-item-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 16px 8px 16px;
+  color: #57606a;
+  background-color: #f6f8fa;
+  border-bottom: 1px solid #d0d7de;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  .message-content-item-name {
+    font-weight: 600;
+    color: rgb(62, 62, 62);
+  }
+  .message-content-item-date {
+    color: #aeaeae;
+    font-size: 12px;
+  }
+}
+
+.message-content-item-message {
+  flex: 1;
+  padding: 1rem;
+}

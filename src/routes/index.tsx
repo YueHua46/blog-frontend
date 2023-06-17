@@ -8,6 +8,8 @@ import Archive from '../views/Archive/Archive'
 import Friends from '../views/Friends/Friends'
 import Message from '../views/Message/Message'
 import About from '../views/About/About'
+import BlogDetailed from '../views/BlogDetailed/BlogDetailed'
+import { blogLoader } from './loader'
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,11 @@ export const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '/blog_detailed/:id',
+        element: <BlogDetailed />,
+        loader: blogLoader,
       },
     ],
   },

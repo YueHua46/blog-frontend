@@ -2,10 +2,11 @@ import { LanguageColors } from "../YHTag/types"
 
 export interface BlogCardProps {
   children?: React.ReactNode
+  id: number
   tags: (keyof typeof LanguageColors)[]
   title: string
   subTitle: string
-  createTile: string
+  createTime: string
   views: number
   comments: number
   likes: number

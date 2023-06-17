@@ -1,41 +1,5 @@
-$border-color: #97dffd;
+@use '../../assets/variables.scss' as m;
 
-@mixin fixed-title-style {
-  border-color: $border-color;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  background-color: $border-color;
-  margin: 5px 0 15px 2px;
-  font-size: 14px;
-  position: relative;
-  left: -32px;
-  border-radius: 0 4px 4px 0;
-  padding: 7px 11.2px 7px 32px;
-  display: inline-block;
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 2px;
-
-  // 文本阴影
-  text-shadow: 0 1px 0 #fff, 0 0 2px rgba(0, 0, 0, 0.2);
-
-  &::after {
-    position: absolute;
-    content: '';
-    top: 100%;
-    left: 0;
-    border-top: 0 solid transparent;
-    border-right-width: 1em;
-    border-right-color: #48456d;
-    border-right-style: solid;
-    border-bottom: 1em solid transparent;
-    border-left: 0 solid transparent;
-    width: 0;
-    height: 0;
-  }
-}
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -105,7 +69,7 @@ $border-color: #97dffd;
 }
 
 .comments-title {
-  @include fixed-title-style;
+  @include m.fixed-title-style;
 }
 
 .comments-list {
@@ -161,7 +125,7 @@ $border-color: #97dffd;
 .hot {
 }
 .hot-title {
-  @include fixed-title-style;
+  @include m.fixed-title-style;
 }
 
 .hot-list {

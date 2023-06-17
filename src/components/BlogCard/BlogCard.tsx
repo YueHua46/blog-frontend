@@ -9,14 +9,12 @@ import {
 } from '@heroicons/react/24/outline'
 import { BlogCardProps } from './types'
 import BaseCard from '../BaseCard/BaseCard'
-import { Suspense, useEffect } from 'react'
-import { usePromise } from 'react-use'
 
 export default function BlogCard({
   children,
   tags,
   comments,
-  createTile,
+  createTime,
   likes,
   stars,
   subTitle,
@@ -24,12 +22,11 @@ export default function BlogCard({
   views,
   bgImg,
 }: BlogCardProps) {
-  const mount = usePromise()
   // 统计数据
   const statistics = [
     {
       icon: <CalendarDaysIcon className="h-6 w-6 text-gray-500" />,
-      text: createTile,
+      text: createTime,
     },
     {
       icon: <ChatBubbleLeftRightIcon className="h-6 w-6 text-gray-500" />,

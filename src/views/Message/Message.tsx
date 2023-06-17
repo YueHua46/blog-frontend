@@ -2,12 +2,13 @@ import BaseCard from '../../components/BaseCard/BaseCard'
 import Contact from '../Contact/Contact'
 import Styles from './Message.module.scss'
 import { myMessage } from '../../data'
-import YHMarkdownEdit from '../../components/YHMarkdownEdit/YHMarkdownEdit'
-import MDEditor from '@uiw/react-md-editor'
+import YHMessage from '../../components/YHMessage/YHMessage'
 import { useEffect, useState } from 'react'
+import { IMessage } from './types'
 
 export default function Message() {
-  const [messageList, setMessageList] = useState<Message[]>([
+  // 消息列表
+  const [messageList, setMessageList] = useState<IMessage[]>([
     {
       name: '小明',
       // 在线头像
@@ -23,10 +24,9 @@ export default function Message() {
       content: `# hello world \n 123`,
     },
   ])
-
+  // 提交留言
   function submitMdValue(v: string | undefined) {
     console.log(v)
-
     setMessageList([
       ...messageList,
       {
@@ -38,7 +38,7 @@ export default function Message() {
       },
     ])
   }
-
+  // 初始化
   useEffect(() => {
     setMessageList([...messageList])
   }, [])
@@ -61,45 +61,7 @@ export default function Message() {
         </BaseCard>
         {/* 留言列表 */}
         <BaseCard className={`${Styles['message-content-card']}`}>
-          <h2>发表留言</h2>
-          <div className={`${Styles['message-content-publish']}`}>
-            <YHMarkdownEdit submitMdValue={submitMdValue} />
-          </div>
-          <div className={`${Styles['message-content-list']}`}>
-            {/* 留言统计 */}
-            <div className={`${Styles['message-content-statistics']}`}>
-              <span
-                className={`${Styles['message-content-statistics-item']} text-xl`}>
-                共收录{messageList.length}条留言
-              </span>
-            </div>
-            {/* 留言列表 */}
-            {messageList.map((message, idx) => {
-              return (
-                <div key={idx} className={`${Styles['message-content-item']}`}>
-                  <div className={`${Styles['message-content-item-avatar']}`}>
-                    <img src={message.avatar} alt="" />
-                  </div>
-                  <div className={`${Styles['message-content-item-content']}`}>
-                    <div className={`${Styles['message-content-item-info']}`}>
-                      <span
-                        className={`${Styles['message-content-item-name']}`}>
-                        {message.name}
-                      </span>
-                      <span
-                        className={`${Styles['message-content-item-date']}`}>
-                        {message.date}
-                      </span>
-                    </div>
-                    <div
-                      className={`${Styles['message-content-item-message']}`}>
-                      <MDEditor.Markdown source={message.content} />
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <YHMessage messageList={messageList} submitMdValue={submitMdValue} />
         </BaseCard>
       </div>
       {/* 右侧联系板块 */}

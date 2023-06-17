@@ -78,6 +78,17 @@ export default function YHBackground() {
 
   return (
     <div className={`${YHModuleCss['custom-container']} items-center mb-32`}>
+      {/* 背景 */}
+      <section className={YHModuleCss.wrapper}>
+        <div id={YHModuleCss['#stars']}></div>
+        <div id={YHModuleCss['#stars2']}></div>
+        <div id={YHModuleCss['#stars3']}></div>
+        {/* 标题大字 */}
+        <div className={YHModuleCss.content}>
+          <h1 ref={textRef}></h1>
+        </div>
+      </section>
+
       {/* 头部nav */}
       <div
         className={`${YHModuleCss['nav-container']} ${
@@ -120,7 +131,6 @@ export default function YHBackground() {
               ) : (
                 <BarsArrowUpIcon className=" text-gray-50 ml-4" />
               )}
-              <div></div>
             </button>
             <ul className={YHModuleCss['mobile-nav-list']}>
               {navList.map((item, index) => {
@@ -153,11 +163,6 @@ export default function YHBackground() {
             </ul>
           </div>
         </nav>
-      </div>
-
-      {/* 主要content */}
-      <div className={YHModuleCss.content}>
-        <h1 ref={textRef}></h1>
       </div>
 
       {/* 个人介绍 */}

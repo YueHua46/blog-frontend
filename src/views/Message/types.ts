@@ -1,13 +1,13 @@
-type Reply = {
+export type IReply = {
   name: string;
   date: string;
   content: string;
 }
 
-type Message = {
+export type IMessage = {
   name: string;
   avatar: string;
   date: string;
   content: string;
-  reply?: Reply[];
+  reply?: IReply[];
 }
