@@ -69,7 +69,7 @@ export default function BlogDetailed() {
           className={`${Styles['blog-detailed-fixed']} absolute top-10 left-[-15px] max-lg:hidden`}>
           前端
         </div>
-        <BaseCard>
+        <BaseCard className="p-10">
           {/* 博客头部信息 */}
           <div
             className={`${Styles['blog-content-header']} flex flex-col items-center gap-3 mt-8 mb-20`}>
@@ -109,13 +109,28 @@ export default function BlogDetailed() {
           {/* 博客内容 */}
           <MDEditor.Markdown source={content} />
           {/* 博客底部区域 */}
-          <div className={`${Styles['blog-content-footer']}`}>
+          <div
+            className={`${Styles['blog-content-footer']} flex justify-end gap-3 my-10`}>
             {/* 点赞 */}
-            <div className="blog-footer-like">
-              <HeartIcon className="h-5 w-5 text-gray-800" />
+            <div className="blog-footer-like select-none cursor-pointer flex border border-solid border-pink-600 rounded-2xl py-1 px-4 gap-2 justify-center items-center">
+              <div className="flex items-center">
+                <HeartIcon className="h-5 w-5 text-pink-600" />
+                <span className="text-pink-600 text-sm">喜欢</span>
+              </div>
+              {/* 竖线 */}
+              <i className="h-4 bg-pink-600  w-[1.3px]"></i>
+              <span className="text-pink-600">{data.likes}</span>
             </div>
             {/* 收藏 */}
-            <div className="blog-footer-star"></div>
+            <div className="blog-footer-star select-none cursor-pointer flex border border-solid border-pink-600 rounded-2xl py-1 px-4 gap-2 justify-center items-center">
+              <div className="flex items-center">
+                <StarIcon className="h-5 w-5 text-pink-600" />
+                <span className="text-pink-600 text-sm">收藏</span>
+              </div>
+              {/* 竖线 */}
+              <i className="h-4 bg-pink-600 w-[1.3px]"></i>
+              <span className="text-pink-600">{data.stars}</span>
+            </div>
           </div>
           {/* 博客评论区 */}
           <YHMessage messageList={messageList} submitMdValue={submitMdValue} />
