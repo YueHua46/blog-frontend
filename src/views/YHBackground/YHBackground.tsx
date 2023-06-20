@@ -13,7 +13,7 @@ import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 
 import avatar from '../../assets/images/avatar.png'
 
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import useTypeWriter from '../../hooks/useTypeWriter'
 
@@ -76,6 +76,9 @@ export default function YHBackground() {
     setIsShow(!isShow)
   }
 
+  // 登录跳转
+  const loginHandle = () => {}
+
   return (
     <div className={`${YHModuleCss['custom-container']} items-center mb-32`}>
       {/* 背景 */}
@@ -114,13 +117,15 @@ export default function YHBackground() {
               )
             })}
           </ul>
-          {/* 登录搜索 */}
-          <ul className={YHModuleCss['nav-list']}>
-            <li className={`${YHModuleCss['nav-item']} text-gray-50`}>
+          {/* 登录 */}
+          <div className={YHModuleCss['nav-list']}>
+            <Link
+              to={`/login`}
+              className={`${YHModuleCss['nav-item']} text-gray-50`}>
               <IdentificationIcon className="h-6 w-6 text-gray-50" />
               <span>登录</span>
-            </li>
-          </ul>
+            </Link>
+          </div>
           {/* 适应手机尺寸 */}
           <div className={YHModuleCss['mobile-container']}>
             <button

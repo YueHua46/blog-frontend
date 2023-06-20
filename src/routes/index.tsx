@@ -9,6 +9,7 @@ import Friends from '../views/Friends/Friends'
 import Message from '../views/Message/Message'
 import About from '../views/About/About'
 import BlogDetailed from '../views/BlogDetailed/BlogDetailed'
+import Login from '../views/Login/Login'
 import { blogLoader } from './loader'
 
 export const router = createBrowserRouter([
@@ -43,5 +44,9 @@ export const router = createBrowserRouter([
         loader: blogLoader,
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
 ])
