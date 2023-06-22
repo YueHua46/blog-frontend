@@ -1,47 +1,121 @@
 import bgImg from '../../assets/images/login_bg.png'
 import iphoneImg from '../../assets/images/iphone.png'
 import emailImg from '../../assets/images/email.png'
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState, ChangeEvent } from 'react'
 
 export default function Login() {
-  // 登陆状态
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
   const [loginTel, setLoginTel] = useState('')
   const [loginCode, setLoginCode] = useState('')
-  // 当前登陆模式（邮箱或手机号登陆）
-  enum LoginMode {
-    emailMode = 'EmailMode',
-    telMode = 'TelMode',
+  const [count, setCount] = useState(60)
+  const [getCodeStatus, setGetCodeStatus] = useState(true)
+  const LoginMode = {
+    emailMode: 'EmailMode',
+    telMode: 'TelMode',
   }
-  // 默认模式是email登陆
   const [loginMode, setLoginMode] = useState(LoginMode.emailMode)
-  // 登陆模式切换
+
   function loginModeChange() {
     if (loginMode === LoginMode.emailMode) setLoginMode(LoginMode.telMode)
     if (loginMode === LoginMode.telMode) setLoginMode(LoginMode.emailMode)
   }
 
-  // 邮箱value change事件
-  function emailChange(v: React.FormEvent<HTMLInputElement>) {
-    const value = v.currentTarget.value
-    setLoginEmail(value)
+  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target
+    console.log('name', name)
+    switch (name) {
+      case 'loginEmail':
+        setLoginEmail(value)
+        break
+      case 'loginPassword':
+        if (value.length > 16) return
+        setLoginPassword(value)
+        break
+      case 'loginTel':
+        if (value.length > 11) return
+        setLoginTel(value)
+        break
+      case 'loginCode':
+        if (value.length > 6) return
+        setLoginCode(value)
+        break
+      default:
+        break
+    }
   }
-  // 手机号value change事件
-  function telChange(v: React.FormEvent<HTMLInputElement>) {
-    const value = v.currentTarget.value
-    setLoginTel(value)
+
+  function getCode() {
+    if (!getCodeStatus) return
+    console.log('获取验证码')
+    setGetCodeStatus(false)
+    let countDown = 60
+    const timer = setInterval(() => {
+      setCount(prevCount => prevCount - 1)
+      countDown -= 1
+      if (countDown <= 0) {
+        clearInterval(timer)
+        setCount(60)
+        setGetCodeStatus(true)
+      }
+    }, 1000)
   }
-  // 密码value change事件
-  function pwChange(v: React.FormEvent<HTMLInputElement>) {
-    const value = v.currentTarget.value
-    setLoginPassword(value)
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (loginMode === LoginMode.emailMode) {
+      console.log('Email 登录')
+      console.log('登录邮箱:', loginEmail)
+      console.log('登录密码:', loginPassword)
+    } else if (loginMode === LoginMode.telMode) {
+      console.log('手机号登录')
+      console.log('手机号:', loginTel)
+      console.log('验证码:', loginCode)
+    }
   }
-  // 验证码 change事件
-  function codeChange(v: React.FormEvent<HTMLInputElement>) {
-    const value = v.currentTarget.value
-    setLoginCode(value)
-  }
+
+  useEffect(() => {
+    setLoginEmail('')
+    setLoginTel('')
+    setLoginPassword('')
+    setLoginCode('')
+  }, [loginMode])
+
+  const loginValue = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? loginEmail : loginTel
+  }, [loginMode, loginEmail, loginTel])
+
+  const loginAccountLabelValue = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? '账户邮箱' : '手机号'
+  }, [loginMode])
+
+  const loginAccountPlaceholder = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? '输入账户邮箱' : '输入手机号'
+  }, [loginMode])
+
+  const loginPwLabelValue = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? '密码' : '验证码'
+  }, [loginMode])
+
+  const loginPwType = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? 'password' : 'number'
+  }, [loginMode])
+
+  const loginPwLength = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? 16 : 6
+  }, [loginMode])
+
+  const loginPwPlaceholder = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? '输入密码' : '输入验证码'
+  }, [loginMode])
+
+  const loginImg = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? emailImg : iphoneImg
+  }, [loginMode])
+
+  const loginModeText = useMemo(() => {
+    return loginMode === LoginMode.emailMode ? '手机验证码登陆' : '账户邮箱登陆'
+  }, [loginMode])
 
   return (
     <section className="flex flex-col md:flex-row h-screen items-center">
@@ -54,56 +128,62 @@ export default function Login() {
           <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">
             登录到您的账户
           </h1>
-          <form className="mt-6" action="#">
-            {/* 如果是email态就渲染email登陆态，否则是手机号登陆 */}
+          <form className="mt-6" onSubmit={handleSubmit}>
+            {/* account */}
             <div>
               <label className="block text-gray-700">
-                {loginMode === LoginMode.emailMode ? '账户邮箱' : '手机号'}
+                {loginAccountLabelValue}
               </label>
               <input
-                type="email"
-                placeholder={
-                  loginMode === LoginMode.emailMode
-                    ? '输入账户邮箱'
-                    : '输入手机号'
+                type={loginMode === LoginMode.emailMode ? 'email' : 'tel'}
+                name={
+                  loginMode === LoginMode.emailMode ? 'loginEmail' : 'loginTel'
                 }
-                value={
-                  loginMode === LoginMode.emailMode ? loginEmail : loginTel
-                }
-                onInput={
-                  loginMode === LoginMode.emailMode ? emailChange : telChange
-                }
+                placeholder={loginAccountPlaceholder}
+                value={loginValue}
+                onChange={handleInputChange}
                 className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                 autoFocus
-                autoComplete="on"
+                autoComplete="off"
                 required
               />
             </div>
 
-            <div className="mt-4">
-              <label className="block text-gray-700">
-                {loginMode === LoginMode.emailMode ? '密码' : '验证码'}
-              </label>
-              <input
-                type="password"
-                name=""
-                id=""
-                placeholder={
-                  loginMode === LoginMode.emailMode
-                    ? '请输入密码'
-                    : '请输入验证码'
-                }
-                onInput={
-                  loginMode === LoginMode.emailMode ? pwChange : codeChange
-                }
-                value={
-                  loginMode === LoginMode.emailMode ? loginPassword : loginCode
-                }
-                className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-                required
-              />
+            {/* password */}
+            <div className="mt-4 flex flex-col gap-2">
+              <label className="block text-gray-700">{loginPwLabelValue}</label>
+              <div className="flex gap-3 items-center justify-center">
+                <input
+                  type={loginPwType}
+                  name={
+                    loginMode === LoginMode.emailMode
+                      ? 'loginPassword'
+                      : 'loginCode'
+                  }
+                  maxLength={loginPwLength}
+                  placeholder={loginPwPlaceholder}
+                  onChange={handleInputChange}
+                  value={
+                    loginMode === LoginMode.emailMode
+                      ? loginPassword
+                      : loginCode
+                  }
+                  className="flex-[7] w-full px-4 py-3 rounded-lg bg-gray-200 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                  required
+                />
+                {loginMode === LoginMode.telMode && (
+                  <button
+                    type="submit"
+                    onClick={getCode}
+                    disabled={!getCodeStatus}
+                    className="flex-[3] disabled:cursor-not-allowed disabled:bg-indigo-400 w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3">
+                    {getCodeStatus ? '获取验证码' : `${count}秒后重试`}
+                  </button>
+                )}
+              </div>
             </div>
 
+            {/* 忘记密码 */}
             <div className="text-right mt-2">
               <a
                 href="#"
@@ -112,6 +192,7 @@ export default function Login() {
               </a>
             </div>
 
+            {/* 登录 */}
             <button
               type="submit"
               className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">
@@ -123,19 +204,11 @@ export default function Login() {
 
           <button
             type="button"
-            className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
-            <div
-              className="flex items-center justify-center"
-              onClick={loginModeChange}>
-              <img
-                src={loginMode === LoginMode.emailMode ? iphoneImg : emailImg}
-                className="w-6 h-6"
-              />
-              <span className="ml-4">
-                {loginMode === LoginMode.emailMode
-                  ? '手机验证码登陆'
-                  : '账户邮箱登陆'}
-              </span>
+            className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
+            onClick={loginModeChange}>
+            <div className="flex items-center justify-center">
+              <img src={loginImg} className="w-6 h-6" alt="" />
+              <span className="ml-4">{loginModeText}</span>
             </div>
           </button>
 

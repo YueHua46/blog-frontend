@@ -12,6 +12,12 @@ body {
   font-size: 21px !important;
   line-height: 24px !important;
 }
+/* 取消数字输入框右侧的增减按钮 */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 @media screen and (max-width: 1024px) {
   .wmde-markdown pre {
     max-width: 450px !important;
